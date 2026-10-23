@@ -1,0 +1,70 @@
+{
+  "name": "bakame/embeds",
+  "type": "library",
+  "description": "a lightweight content embed creator",
+  "license": "MIT",
+  "homepage" : "https://github.com/bakame-php/embed",
+  "authors": [
+    {
+      "name" : "Ignace Nyamagana Butera",
+      "email" : "nyamsprod@gmail.com",
+      "homepage" : "https://github.com/nyamsprod/",
+      "role" : "Developer"
+    }
+  ],
+  "support": {
+    "docs": "https://github.com/bakame-php/embed",
+    "issues": "https://github.com/bakame-php/embed/issues",
+    "rss": "https://github.com/bakame-php/embed/releases.atom",
+    "source": "https://github.com/bakame-php/embed"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/nyamsprod"
+    }
+  ],
+  "keywords": [
+    "URITemplate",
+    "URLPattern",
+    "oembed",
+    "video",
+    "audio",
+    "sharing"
+  ],
+  "require": {
+    "php": "^8.4",
+    "league/uri-components": "^7.9.0",
+    "league/uri-polyfill" : "^7.9.0",
+    "ext-dom" : "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bakame\\Embeds\\" : "src/"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^8.1.7",
+    "phpstan/phpstan-phpunit": "^2.1.1",
+    "phpstan/phpstan": "^2.3",
+    "phpunit/phpunit": "^13.4.1",
+    "phpstan/phpstan-deprecation-rules": "^2.0.5",
+    "friendsofphp/php-cs-fixer": "^3.95.27",
+    "phpstan/phpstan-strict-rules": "^2.1"
+  },
+  "scripts": {
+    "phpcs": "php-cs-fixer fix -vvv --diff --dry-run --allow-risky=yes --ansi",
+    "phpcs:fix": "php-cs-fixer fix -vvv --allow-risky=yes --ansi",
+    "phpstan": "phpstan analyse -c phpstan.neon --ansi --memory-limit=256M",
+    "phpunit": "XDEBUG_MODE=coverage phpunit --coverage-text",
+    "phpunit:no-coverage": "phpunit --no-coverage",
+    "test": [
+      "@phpunit",
+      "@phpstan",
+      "@phpcs"
+    ]
+  }
+}
